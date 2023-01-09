@@ -1,0 +1,26 @@
+.square {
+  background-color: white;
+  border: none;
+  border-radius: 10%;
+  filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.5));
+  width: 4rem;
+  height: 4rem;
+  text-align: center;
+  font-size: 3.2rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.square:hover{
+    filter: drop-shadow(
+        0 0 0.7rem rgba(31, 31, 31, 0.548)
+    );
+}
+
+.x {
+    color: rgb(255,70,37);
+}
+
+.o{
+    color: rgb(0, 0, 255);
+}
