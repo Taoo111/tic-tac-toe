@@ -22,6 +22,7 @@ function App() {
     xScore: 0,
     oScore: 0,
   });
+  const [reset, setReset] = useState(false);
 
   const handleSquareClick = (squareID) => {
     const updatedBoard = board.map((value, index) => {
@@ -36,7 +37,7 @@ function App() {
       if (winner === "X") {
         let { xScore } = scoreStatus;
         xScore += 1;
-        setScoreStatus({...scoreStatus, xScore});
+        setScoreStatus({ ...scoreStatus, xScore });
       } else if (winner === "O") {
         let { oScore } = scoreStatus;
         oScore += 1;
@@ -48,19 +49,24 @@ function App() {
     setXPlayer(!xPlayer);
   };
 
+  const gameOver = () => {
+    setReset(false);
+    setBoard(["", "", "", "", "", "", "", "", ""]);
+  };
+  
   const checkWinner = (board) => {
     for (let i = 0; i < WIN_STATUS.length; i++) {
       const [a, b, c] = WIN_STATUS[i];
       if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-        console.log(board[a]);
+        setReset(true);
         return board[a];
       }
     }
   };
   return (
     <div className="App">
-      <ScoreBoard scoresStatus={scoreStatus}/>
-      <Board board={board} onClick={handleSquareClick} />
+      <ScoreBoard scoresStatus={scoreStatus} xPlayer={xPlayer} />
+      <Board board={board} onClick={reset ? gameOver : handleSquareClick} />
     </div>
   );
 }
