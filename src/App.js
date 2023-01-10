@@ -5,14 +5,15 @@ import "./App.css";
 
 function App() {
   const [board, setBoard] = useState(["", "", "", "", "", "", "", "", ""]);
+  const [xPlayer, setXPlayer] = useState(true);
   const handleSquareClick = (squareID) => {
     const updatedBoard = board.map((value, index) => {
       if (index === squareID) {
-        return "X";
+        return xPlayer === true ? "X" : "O";
       } else return value;
-
     });
-    setBoard(updatedBoard)
+    setBoard(updatedBoard);
+    setXPlayer(!xPlayer)
   };
   return (
     <div className="App">
