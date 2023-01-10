@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import Board from "./components/Board";
+import ScoreBoard from "./components/ScoreBoard";
 import "./App.css";
 
 function App() {
@@ -17,6 +18,10 @@ function App() {
 
   const [board, setBoard] = useState(["", "", "", "", "", "", "", "", ""]);
   const [xPlayer, setXPlayer] = useState(true);
+  const [scoreStatus, setScoreStatus] = useState({
+    xScore: 0,
+    oScore: 0,
+  });
 
   const handleSquareClick = (squareID) => {
     const updatedBoard = board.map((value, index) => {
@@ -24,7 +29,21 @@ function App() {
         return xPlayer === true ? "X" : "O";
       } else return value;
     });
-    checkWinner(updatedBoard);
+
+    const winner = checkWinner(updatedBoard);
+
+    if (winner) {
+      if (winner === "X") {
+        let { xScore } = scoreStatus;
+        xScore += 1;
+        setScoreStatus({...scoreStatus, xScore});
+      } else if (winner === "O") {
+        let { oScore } = scoreStatus;
+        oScore += 1;
+        setScoreStatus({ ...scoreStatus, oScore });
+      }
+    }
+
     setBoard(updatedBoard);
     setXPlayer(!xPlayer);
   };
@@ -40,7 +59,7 @@ function App() {
   };
   return (
     <div className="App">
-      <p>hello worlds</p>
+      <ScoreBoard scoresStatus={scoreStatus}/>
       <Board board={board} onClick={handleSquareClick} />
     </div>
   );
