@@ -53,7 +53,7 @@ function App() {
     setReset(false);
     setBoard(["", "", "", "", "", "", "", "", ""]);
   };
-  
+
   const checkWinner = (board) => {
     for (let i = 0; i < WIN_STATUS.length; i++) {
       const [a, b, c] = WIN_STATUS[i];
@@ -72,3 +72,4 @@ function App() {
 }
 
 export default App;
+
