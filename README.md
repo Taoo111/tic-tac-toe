@@ -1,6 +1,6 @@
 # Short Description
 
-As part of learning and practising React, I created a tic-tac-toe game in order to draw on good practices and tips on how to approach solving various problems.
+As part of learning and practising React, I created a tic-tac-toe game. I used available materials on YouTube to derive good practices and tips on how to approach solving various problems.
 
 # Getting Started with Create React App
 
