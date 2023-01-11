@@ -8,3 +8,10 @@ body {
   background-color: #DEE1EC;
   font-family: "Oswald", "Roboto", sans-serif;
 }
+
+.buttons-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}

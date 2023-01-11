@@ -1,10 +1,10 @@
-import "./ResetBtn.css"
+import "./Buttons.css"
 
 export default function ResetBtn(props) {
     const {resetBoard} = props
     return(
         <div>
-            <button className="reset-btn" onClick={resetBoard}>Reset</button>
+            <button className="operation-btn" onClick={resetBoard}>Reset</button>
         </div>
     )
 };
