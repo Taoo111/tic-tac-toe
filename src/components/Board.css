@@ -1,7 +1,17 @@
 .board{
     display: grid;
-    grid-template-columns: repeat(3, 4.5rem);
-    grid-gap: 0.7rem;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    grid-gap: 1.5rem;
+    max-width: 200px;
     place-items: center;
     justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 40px;
 }
+
+@media (max-width: 550px) {
+    .board{
+        margin-top: 50px;
+        margin-bottom: 100px;
+    }
+  }
