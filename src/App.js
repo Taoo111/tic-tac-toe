@@ -78,10 +78,21 @@ function App() {
     setScoreStatus({ xScore: 0, oScore: 0 });
     setReset(false);
     setBoard(squareArray);
-    
   };
   return (
     <div className="App">
+        <ul className="circles">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
       <ScoreBoard scoresStatus={scoreStatus} xPlayer={xPlayer} />
       <Board
         board={board}
