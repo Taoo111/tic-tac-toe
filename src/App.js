@@ -2,7 +2,11 @@ import { useState } from "react";
 
 import Board from "./components/Board";
 import ScoreBoard from "./components/ScoreBoard";
+import ResetBtn from "./components/ResetBtn";
+
 import "./App.css";
+
+const squareArray = ["", "", "", "", "", "", "", "", ""]
 
 function App() {
   const WIN_STATUS = [
@@ -16,7 +20,7 @@ function App() {
     [2, 4, 6],
   ];
 
-  const [board, setBoard] = useState(["", "", "", "", "", "", "", "", ""]);
+  const [board, setBoard] = useState(squareArray);
   const [xPlayer, setXPlayer] = useState(true);
   const [scoreStatus, setScoreStatus] = useState({
     xScore: 0,
@@ -51,7 +55,7 @@ function App() {
 
   const gameOver = () => {
     setReset(false);
-    setBoard(["", "", "", "", "", "", "", "", ""]);
+    setBoard(squareArray);
   };
 
   const checkWinner = (board) => {
@@ -63,10 +67,16 @@ function App() {
       }
     }
   };
+
+  const resetBoard = () => {
+    setReset(false)
+    setBoard(squareArray)
+  }
   return (
     <div className="App">
       <ScoreBoard scoresStatus={scoreStatus} xPlayer={xPlayer} />
       <Board board={board} onClick={reset ? gameOver : handleSquareClick} />
+      <ResetBtn resetBoard={resetBoard} />
     </div>
   );
 }
