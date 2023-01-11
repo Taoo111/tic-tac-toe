@@ -3,10 +3,11 @@ import { useState } from "react";
 import Board from "./components/Board";
 import ScoreBoard from "./components/ScoreBoard";
 import ResetBtn from "./components/ResetBtn";
+import NewGame from "./components/NewGame";
 
 import "./App.css";
 
-const squareArray = ["", "", "", "", "", "", "", "", ""]
+const squareArray = ["", "", "", "", "", "", "", "", ""];
 
 function App() {
   const WIN_STATUS = [
@@ -69,17 +70,29 @@ function App() {
   };
 
   const resetBoard = () => {
-    setReset(false)
-    setBoard(squareArray)
-  }
+    setReset(false);
+    setBoard(squareArray);
+  };
+
+  const newGame = () => {
+    setScoreStatus({ xScore: 0, oScore: 0 });
+    setReset(false);
+    setBoard(squareArray);
+    
+  };
   return (
     <div className="App">
       <ScoreBoard scoresStatus={scoreStatus} xPlayer={xPlayer} />
-      <Board board={board} onClick={reset ? gameOver : handleSquareClick} />
-      <ResetBtn resetBoard={resetBoard} />
+      <Board
+        board={board}
+        onClick={reset ? gameOver || newGame : handleSquareClick}
+      />
+      <div className="buttons-container">
+        <ResetBtn resetBoard={resetBoard} />
+        <NewGame newGame={newGame} />
+      </div>
     </div>
   );
 }
 
 export default App;
-
