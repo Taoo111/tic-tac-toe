@@ -81,7 +81,6 @@ function App() {
   };
   return (
     <div className="App">
-        
       <ScoreBoard scoresStatus={scoreStatus} xPlayer={xPlayer} />
       <Board
         board={board}
