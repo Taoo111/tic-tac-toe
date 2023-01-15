@@ -21,7 +21,7 @@ body {
 }
 
 .circles{
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -31,7 +31,7 @@ body {
 }
 
 .circles li{
-    position: fixed;
+    position: absolute;
     display: block;
     list-style: none;
     width: 20px;
