@@ -81,7 +81,17 @@ function App() {
   };
   return (
     <div className="App">
-        <ul className="circles">
+        
+      <ScoreBoard scoresStatus={scoreStatus} xPlayer={xPlayer} />
+      <Board
+        board={board}
+        onClick={reset ? gameOver || newGame : handleSquareClick}
+      />
+      <div className="buttons-container">
+        <ResetBtn resetBoard={resetBoard} />
+        <NewGame newGame={newGame} />
+      </div>
+      <ul className="circles">
           <li></li>
           <li></li>
           <li></li>
@@ -93,15 +103,6 @@ function App() {
           <li></li>
           <li></li>
         </ul>
-      <ScoreBoard scoresStatus={scoreStatus} xPlayer={xPlayer} />
-      <Board
-        board={board}
-        onClick={reset ? gameOver || newGame : handleSquareClick}
-      />
-      <div className="buttons-container">
-        <ResetBtn resetBoard={resetBoard} />
-        <NewGame newGame={newGame} />
-      </div>
     </div>
   );
 }
